@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheDevMango - Minecraft Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Minecraft Bedrock style and theme (Dark Theme Only) */
+        :root {
+            /* Dark Theme Colors (now the only theme) */
+            --background-body: #1a1a1a;
+            --text-color: #e0e0e0;
+            --primary-green: #4CAF50; /* Vibrant Green */
+            --primary-green-dark: #388E3C; /* Darker Green for hover/shadow */
+            --secondary-yellow: #FFEB3B; /* Vibrant Yellow */
+            --secondary-yellow-dark: #FBC02D; /* Darker Yellow for hover/shadow */
+            --border-color: #555;
+            --button-text-color: #ffffff;
+            --card-background: #2a2a2a;
+            --header-footer-bg: #282828; /* Slightly different shade for header/footer */
+            --projects-bg: #222222; /* Projects section background */
+            --hero-gradient-start: #1a1a1a;
+            --hero-gradient-end: #333333;
+        }
+
+        body {
+            font-family: 'Red Hat Display', sans-serif;
+            background-color: var(--background-body);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Minecraft Bedrock Style Buttons - Classic Look */
+        .minecraft-button {
+            @apply inline-flex items-center justify-center rounded-lg cursor-pointer relative overflow-hidden;
+            background-color: var(--primary-green);
+            color: var(--button-text-color);
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+            padding: 1rem 2.5rem; /* Ample padding for breathing room */
+            /* Reintroduced box-shadow for classic depth effect */
+            box-shadow: 0px 6px 0px var(--primary-green-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out, transform 0.1s ease-out; /* Smooth transition for all changes */
+            transform: translateY(0); /* Base position */
+            border: none; /* Ensure no default borders interfere */
+        }
+
+        .minecraft-button:hover {
+            background-color: var(--secondary-yellow);
+            /* Box-shadow remains consistent in offset/blur, only color changes */
+            box-shadow: 0px 6px 0px var(--secondary-yellow-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(0); /* No lift on hover */
+            color: var(--button-text-color);
+        }
+
+        .minecraft-button:active {
+            transform: translateY(3px); /* Push down on click */
+            /* Flatten shadow on click for "pressed" look */
+            box-shadow: 0px 0px 0px var(--primary-green-dark), 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Specific style for primary CTA button */
+        .minecraft-button.cta {
+            background-color: var(--secondary-yellow);
+            box-shadow: 0px 6px 0px var(--secondary-yellow-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+            color: var(--button-text-color);
+        }
+
+        .minecraft-button.cta:hover {
+            background-color: var(--primary-green);
+            box-shadow: 0px 6px 0px var(--primary-green-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+        }
+        .minecraft-button.cta:active {
+            transform: translateY(3px); /* Consistent push down */
+            box-shadow: 0px 0px 0px var(--secondary-yellow-dark), 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card styling */
+        .card {
+            background-color: var(--card-background);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Section headings */
+        h1, h2, h3 {
+            color: var(--secondary-yellow);
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Links */
+        a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-yellow);
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .minecraft-button {
+                padding: 0.8rem 1.8rem;
+                font-size: 1.1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Direct CSS application for fixed elements */
+        header {
+            background-color: var(--header-footer-bg);
+            transition: background-color 0.3s ease;
+        }
+
+        footer {
+            background-color: var(--header-footer-bg);
+            transition: background-color 0.3s ease;
+        }
+
+        #projects {
+            background-color: var(--projects-bg);
+            transition: background-color 0.3s ease;
+        }
+
+        #home {
+            background-image: linear-gradient(to bottom right, var(--hero-gradient-start), var(--hero-gradient-end));
+            transition: background-image 0.3s ease;
+        }
+        .social-container{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-3xl font-bold text-secondary-yellow mb-2 md:mb-0">TheDevMango</h1>
+            <nav>
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center">
+                    <li><a href="#home" class="hover:text-primary-green">Home</a></li>
+                    <li><a href="#about" class="hover:text-primary-green">About</a></li>
+                    <li><a href="#projects" class="hover:text-primary-green">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-primary-green">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center">
+        <div class="absolute inset-0 bg-black opacity-70"></div>
+        <div class="relative z-10 p-8 rounded-lg">
+            <h1 class="text-5xl md:text-7xl font-bold text-secondary-yellow mb-4">TheDevMango</h1>
+            <p class="text-xl md:text-2xl text-text-color mb-8">Crafting immersive experiences for your Minecraft world.</p>
+            <a href="#projects" class="minecraft-button cta">Explore My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4" style="background-color: var(--background-body);">
+        <div class="container mx-auto text-center card">
+            <h2 class="text-4xl font-bold mb-6">About Me</h2>
+            <p class="text-lg mb-4">
+                Hey there, fellow block enthusiasts! I'm TheDevMango, a passionate Minecraft Mod, Datapack, and Resourcepack Developer.
+                My journey in the blocky universe began with a fascination for how things works and a desire to add my own twist to the game.
+            </p>
+            <p class="text-lg mb-4">
+                I specialize in creating unique and engaging content that enhances gameplay, whether it's through new crafting recipes,
+                custom mechanics, or stunning visual overhauls. My goal is always to deliver high-quality, bug-free, and fun additions
+                that seamlessly integrate into your Minecraft adventures.
+            </p>
+            <p class="text-lg">
+                When I'm not coding, you can probably find me exploring new biomes, building elaborate redstone contraptions, or
+                brainstorming the next big idea for a datapack!
+            </p>
+            <p class="text-lg">
+                I am a Master in Datapack and Resourcepack Development but im Learning Fabric Mod Development. I will release Mods Soon too.
+            </p>
+            <p class="text-lg">
+                I am also a Passionate Python, JS and Godot Developer.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1: Craftables -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-3">Craftables Datapack</h3>
+                    <p class="text-text-color mb-4">
+                        The Craftables Datapack adds Some Crafting Recipes that were previosly only avaliable through Loot and Creative. Such as Horse Armor, NameTag, Ore Blocks and more. It also has more stuff like being able to Craft Invisible Item and Glow Item Frames and Armor Stands spawning with Arms by default.
+                    </p>
+                    <a href="https://modrinth.com/datapack/craftables-datapack" target="_blank" class="minecraft-button cta">Download on Modrinth</a>
+                </div>
+
+                <!-- Project Card 2: Example Mod -->
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-3">Truthful PVP Pack</h3>
+                    <p class="text-text-color mb-4">
+                        A 1.8.9 PVP pack especially made for PVPers and Clutchers. Adds things like Softer Wool, Short Swords, Red Diamond etc. This pack might get Slower Updates because of my Focus on other Packs is more.
+                    </p>
+                    <a href="https://modrinth.com/resourcepack/truthfull-pvp-pack" target="_blank" class="minecraft-button">Download on Modrinth</a>
+                </div>
+
+                <!-- Project Card 3: Example Resourcepack -->
+                <div class="card">
+                    <h3 class="2xl font-bold mb-3">Advancements+ Datapack</h3>
+                    <p class="text-text-color mb-4">
+                        A Minecraft Datapack adding a Variety of Vanilla-Freindly Advancements/Achievments to Minecraft. Includes Achivements like Die to Creeper, Kill the Warden etc. Currently, There are not many Achievments but in Future, I will add more.
+                    </p>
+                    <a href="https://modrinth.com/datapack/advancementsplusdp" target="_blank" class="minecraft-button">Download on Modrinth</a>
+                </div>
+
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4" style="background-color: var(--background-body);">
+        <div class="container mx-auto text-center card">
+            <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+            <p class="text-lg mb-8">
+                Have a project idea, a question, or just want to say hi? Feel free to reach out!
+            </p>
+            <div class="flex flex-col items-center space-y-4">
+                <p class="text-xl">Email: <a href="mailto:thedevmango80@gmail.com" class="hover:underline">thedevmango80@gmail.com</a></p>
+                <p class="text-xl">Discord: <span class="text-primary-green">mrcoderpro</span></p>  
+                <p class="text-xl social-container">
+                    <a href="https://modrinth.com/organization/mango-mods" target="_blank">
+                        <img src="./Assets/modrinth-logo.webp" alt="m" width="50px">
+                    </a>                                 
+                    <a href="https://ko-fi.com/mrcoderpro" target="_blank">
+                        <img src="./Assets/ko-fi-logo.png" alt="kf" width="50px">
+                    </a>                    
+                    <a href="https://www.youtube.com/@TheDevMango" target="_blank">
+                        <img src="./Assets/youtube-logo.png" alt="yt" width="70px" height="40px">             
+                    </a>                    
+                </p>
+                <a href="https://discord.com/invite/suQwz82kFZ" target="_blank" class="minecraft-button cta">Join Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-text-color p-6 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 TheDevMango. All rights reserved. Crafted with blocks and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
