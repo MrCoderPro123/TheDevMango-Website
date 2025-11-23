@@ -1,0 +1,15 @@
+#projects {
+    background-color: var(--projects-bg);
+    transition: background-color 0.3s ease;
+}
+
+#home {
+    background-image: linear-gradient(to bottom right, var(--hero-gradient-start), var(--hero-gradient-end));
+    transition: background-image 0.3s ease;
+}
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

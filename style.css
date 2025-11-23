@@ -1,0 +1,160 @@
+  /* Custom CSS for Minecraft Bedrock style and theme (Dark Theme Only) */
+  :root {
+      /* Dark Theme Colors (now the only theme) */
+      --background-body: #1a1a1a;
+      --text-color: #e0e0e0;
+      --primary-green: #4CAF50;
+      /* Vibrant Green */
+      --primary-green-dark: #388E3C;
+      /* Darker Green for hover/shadow */
+      --secondary-yellow: #FFEB3B;
+      /* Vibrant Yellow */
+      --secondary-yellow-dark: #FBC02D;
+      /* Darker Yellow for hover/shadow */
+      --border-color: #555;
+      --button-text-color: #ffffff;
+      --card-background: #2a2a2a;
+      --header-footer-bg: #282828;
+      /* Slightly different shade for header/footer */
+      --projects-bg: #222222;
+      /* Projects section background */
+      --hero-gradient-start: #1a1a1a;
+      --hero-gradient-end: #333333;
+  }
+
+  body {
+      font-family: 'Red Hat Display', sans-serif;
+      background-color: var(--background-body);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Prevent horizontal scrolling */
+  }
+
+  /* Minecraft Bedrock Style Buttons - Classic Look */
+  .minecraft-button {
+      @apply inline-flex items-center justify-center rounded-lg cursor-pointer relative overflow-hidden;
+      background-color: var(--primary-green);
+      color: var(--button-text-color);
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+      padding: 1rem 2.5rem;
+      /* Ample padding for breathing room */
+      /* Reintroduced box-shadow for classic depth effect */
+      box-shadow: 0px 6px 0px var(--primary-green-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out, transform 0.1s ease-out;
+      /* Smooth transition for all changes */
+      transform: translateY(0);
+      /* Base position */
+      border: none;
+      /* Ensure no default borders interfere */
+  }
+
+  .minecraft-button:hover {
+      background-color: var(--secondary-yellow);
+      /* Box-shadow remains consistent in offset/blur, only color changes */
+      box-shadow: 0px 6px 0px var(--secondary-yellow-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+      transform: translateY(0);
+      /* No lift on hover */
+      color: var(--button-text-color);
+  }
+
+  .minecraft-button:active {
+      transform: translateY(3px);
+      /* Push down on click */
+      /* Flatten shadow on click for "pressed" look */
+      box-shadow: 0px 0px 0px var(--primary-green-dark), 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Specific style for primary CTA button */
+  .minecraft-button.cta {
+      background-color: var(--secondary-yellow);
+      box-shadow: 0px 6px 0px var(--secondary-yellow-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+      color: var(--button-text-color);
+  }
+
+  .minecraft-button.cta:hover {
+      background-color: var(--primary-green);
+      box-shadow: 0px 6px 0px var(--primary-green-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .minecraft-button.cta:active {
+      transform: translateY(3px);
+      /* Consistent push down */
+      box-shadow: 0px 0px 0px var(--secondary-yellow-dark), 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Card styling */
+  .card {
+      background-color: var(--card-background);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Section headings */
+  h1,
+  h2,
+  h3 {
+      color: var(--secondary-yellow);
+      text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.5rem;
+  }
+
+  /* Links */
+  a {
+      color: var(--primary-green);
+      text-decoration: none;
+      transition: color 0.2s ease;
+  }
+
+  a:hover {
+      color: var(--secondary-yellow);
+      text-decoration: underline;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .minecraft-button {
+          padding: 0.8rem 1.8rem;
+          font-size: 1.1rem;
+      }
+
+      nav ul {
+          flex-direction: column;
+          align-items: center;
+      }
+
+      nav ul li {
+          margin: 0.5rem 0;
+      }
+
+      .hero-content h1 {
+          font-size: 2.8rem;
+      }
+
+      .hero-content p {
+          font-size: 1.1rem;
+      }
+
+      .grid-cols-2 {
+          grid-template-columns: 1fr;
+      }
+
+      .card {
+          padding: 1.5rem;
+      }
+  }
+
+  /* Direct CSS application for fixed elements */
+  header {
+      background-color: var(--header-footer-bg);
+      transition: background-color 0.3s ease;
+  }
+
+  footer {
+      background-color: var(--header-footer-bg);
+      transition: background-color 0.3s ease;
+  }
