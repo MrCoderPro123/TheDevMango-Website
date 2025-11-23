@@ -15,13 +15,24 @@
     <!-- Header Section -->
     <header class="text-white p-4 shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <h1 class="text-3xl font-bold text-secondary-yellow mb-2 md:mb-0">TheDevMango</h1>
-            <nav>
-                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center">
-                    <li><a href="../index.html" class="hover:text-primary-green">Home</a></li>
-                    <li><a href="../index.html#about" class="hover:text-primary-green">About</a></li>
-                    <li><a href="../index.html#projects" class="hover:text-primary-green">Projects</a></li>
-                    <li><a href="../index.html#contact" class="hover:text-primary-green">Contact</a></li>
+            <div class="flex justify-between items-center w-full md:w-auto">
+                <h1 class="text-3xl font-bold text-secondary-yellow mb-2 md:mb-0">TheDevMango</h1>
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white p-2 rounded-lg hover:bg-[#2a2a2a] focus:outline-none focus:ring-2 focus:ring-[var(--primary-green)] transition-all" aria-label="Toggle menu">
+                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <nav id="mobileNav" class="hidden md:block w-full md:w-auto">
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center mt-4 md:mt-0">
+                    <li><a href="../index.html" class="hover:text-primary-green block py-2 md:py-0">Home</a></li>
+                    <li><a href="../index.html#about" class="hover:text-primary-green block py-2 md:py-0">About</a></li>
+                    <li><a href="../index.html#projects" class="hover:text-primary-green block py-2 md:py-0">Projects</a></li>
+                    <li><a href="../index.html#contact" class="hover:text-primary-green block py-2 md:py-0">Contact</a></li>
                 </ul>
             </nav>
         </div>

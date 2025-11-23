@@ -193,6 +193,184 @@
 }
 
 /* Responsive Design */
+
+/* Mobile Menu Button Styles */
+#mobileMenuBtn {
+    display: block;
+    background-color: transparent;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#mobileMenuBtn:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-color: var(--primary-green);
+}
+
+#mobileMenuBtn:active {
+    transform: scale(0.95);
+    background-color: rgba(76, 175, 80, 0.2);
+}
+
+#mobileMenuBtn svg {
+    transition: transform 0.2s ease;
+}
+
+#mobileNav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+#mobileNav:not(.hidden) {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+}
+
+@media (min-width: 768px) {
+    #mobileMenuBtn {
+        display: none !important;
+    }
+
+    #mobileNav {
+        max-height: none !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    #mobileNav.hidden {
+        display: block !important;
+    }
+}
+
+/* Mobile devices (up to 640px) */
+@media (max-width: 640px) {
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    #mobileNav ul {
+        background-color: var(--header-footer-bg);
+        border-radius: 8px;
+        padding: 1rem 0;
+        margin-top: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #assetsGrid .asset-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    #assetsGrid .asset-card .audio-player,
+    #assetsGrid .asset-card .download-btn {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #assetsGrid .asset-card h3 {
+        font-size: 1.25rem;
+    }
+
+    #assetsGrid .asset-card .text-2xl {
+        font-size: 1.5rem;
+    }
+
+    .category-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #searchbar,
+    #assetType {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+    }
+
+    #resultsCount {
+        font-size: 0.85rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    #noResults .text-6xl {
+        font-size: 3rem;
+    }
+
+    #noResults h3 {
+        font-size: 1.5rem;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small tablets and mobile landscape (641px to 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+    #assetsGrid .asset-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    #assetsGrid .asset-card .audio-player {
+        max-width: 250px;
+    }
+
+    #assetsGrid .asset-card .download-btn {
+        max-width: 140px;
+    }
+}
+
+/* Tablet devices (up to 768px) */
 @media (max-width: 768px) {
     .back-to-top {
         width: 45px;
@@ -210,12 +388,54 @@
     #assetsGrid .asset-card .download-btn {
         max-width: 100%;
     }
+
+    section {
+        padding: 2.5rem 1rem;
+    }
+}
+
+/* Medium devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #assetsGrid .asset-card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #assetsGrid .asset-card .audio-player {
+        max-width: 280px;
+    }
+
+    #assetsGrid .asset-card .download-btn {
+        max-width: 145px;
+    }
+
+    .container {
+        max-width: 90%;
+    }
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+    }
 }
 
 /* Header Enhancement */
 header {
     backdrop-filter: blur(10px);
     background-color: rgba(40, 40, 40, 0.95);
+}
+
+/* Banner/Subtitle responsive */
+@media (max-width: 640px) {
+    div.bg-\\[\\#222222\\] {
+        padding: 0.75rem 1rem !important;
+    }
+
+    div.bg-\\[\\#222222\\] p {
+        font-size: 0.9rem !important;
+    }
 }
 
 /* Card Icon Animation */

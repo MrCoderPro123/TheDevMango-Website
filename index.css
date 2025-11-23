@@ -38,3 +38,133 @@ a, button {
     justify-content: center;
     align-items: center;
 }
+
+/* Banner responsive styles */
+@media (max-width: 640px) {
+    /* Target the banner div */
+    body > div.bg-\\[\\#4CAF50\\] {
+        padding: 0.75rem 1rem !important;
+    }
+
+    body > div.bg-\\[\\#4CAF50\\] p {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Responsive adjustments for index page */
+@media (max-width: 640px) {
+    #home {
+        min-height: 70vh;
+        padding: 2rem 1rem;
+    }
+
+    #home .relative.z-10 {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 90%;
+    }
+
+    #home h1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    #home p {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+
+    /* Banner responsive */
+    div.bg-\\[\\#4CAF50\\] {
+        padding: 0.75rem 1rem;
+    }
+
+    div.bg-\\[\\#4CAF50\\] p {
+        font-size: 0.9rem;
+    }
+
+    #skills .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    #skills .skill-card {
+        padding: 0.75rem;
+    }
+
+    #skills .skill-card .text-5xl {
+        font-size: 2.5rem;
+    }
+
+    #stats .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    #stats .stat-card {
+        min-height: 120px;
+        padding: 1rem;
+    }
+
+    #stats .stat-card .text-5xl {
+        font-size: 2.5rem;
+    }
+
+    #projects .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    #contact .social-container {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    #contact .social-container img {
+        width: 40px;
+        height: auto;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    #about .card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    #contact p {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    #skills .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #stats .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #skills .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #projects .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
