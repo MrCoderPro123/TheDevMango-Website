@@ -23,6 +23,7 @@
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center">
                     <li><a href="#home" class="hover:text-primary-green">Home</a></li>
                     <li><a href="#about" class="hover:text-primary-green">About</a></li>
+                    <li><a href="#skills" class="hover:text-primary-green">Skills</a></li>
                     <li><a href="#projects" class="hover:text-primary-green">Projects</a></li>
                     <li><a href="#contact" class="hover:text-primary-green">Contact</a></li>
                     <li><a href="./Pages/assets.html" class="hover:text-primary-green">Assets</a></li>
@@ -82,13 +83,96 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">Skills & Technologies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="skill-card card text-center">
+                    <div class="text-5xl mb-3">📦</div>
+                    <h3 class="text-lg font-bold">Datapacks</h3>
+                    <p class="text-sm text-text-color">Master</p>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="skill-card card text-center">
+                    <div class="text-5xl mb-3">🎨</div>
+                    <h3 class="text-lg font-bold">Resourcepacks</h3>
+                    <p class="text-sm text-text-color">Master</p>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="skill-card card text-center">
+                    <div class="text-5xl mb-3">⚙️</div>
+                    <h3 class="text-lg font-bold">Fabric Mods</h3>
+                    <p class="text-sm text-text-color">Learning</p>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="skill-card card text-center">
+                    <div class="text-5xl mb-3">🐍</div>
+                    <h3 class="text-lg font-bold">Python</h3>
+                    <p class="text-sm text-text-color">Advanced</p>
+                </div>
+                <!-- Skill Card 5 -->
+                <div class="skill-card card text-center">
+                    <div class="text-5xl mb-3">⚡</div>
+                    <h3 class="text-lg font-bold">JavaScript</h3>
+                    <p class="text-sm text-text-color">Advanced</p>
+                </div>
+                <!-- Skill Card 6 -->
+                <div class="skill-card card text-center">
+                    <div class="text-5xl mb-3">🎮</div>
+                    <h3 class="text-lg font-bold">Godot</h3>
+                    <p class="text-sm text-text-color">Advanced</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-16 px-4" style="background-color: var(--background-body);">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">By The Numbers</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Stat 1 -->
+                <div class="stat-card card text-center">
+                    <div class="text-5xl font-bold text-secondary-yellow mb-2">
+                        <span class="counter" data-target="3">0</span>+
+                    </div>
+                    <p class="text-lg text-text-color">Projects</p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="stat-card card text-center">
+                    <div class="text-5xl font-bold text-primary-green mb-2">
+                        <span class="counter" data-target="1000">0</span>+
+                    </div>
+                    <p class="text-lg text-text-color">Downloads</p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="stat-card card text-center">
+                    <div class="text-5xl font-bold text-secondary-yellow mb-2">
+                        <span class="counter" data-target="2">0</span>+
+                    </div>
+                    <p class="text-lg text-text-color">Years Experience</p>
+                </div>
+                <!-- Stat 4 -->
+                <div class="stat-card card text-center">
+                    <div class="text-5xl font-bold text-primary-green mb-2">
+                        <span class="counter" data-target="100">0</span>%
+                    </div>
+                    <p class="text-lg text-text-color">Passion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="py-16 px-4">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center mb-10">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Card 1: Craftables -->
-                <div class="card">
+                <div class="project-card card">
+                    <div class="project-icon mb-4 text-4xl">📦</div>
                     <h3 class="text-2xl font-bold mb-3">Craftables Datapack</h3>
                     <p class="text-text-color mb-4">
                         The Craftables Datapack adds Some Crafting Recipes that were previosly only avaliable through
@@ -101,7 +185,8 @@
                 </div>
 
                 <!-- Project Card 2: Example Mod -->
-                <div class="card">
+                <div class="project-card card">
+                    <div class="project-icon mb-4 text-4xl">⚔️</div>
                     <h3 class="text-2xl font-bold mb-3">Truthful PVP Pack</h3>
                     <p class="text-text-color mb-4">
                         A 1.8.9 PVP pack especially made for PVPers and Clutchers. Adds things like Softer Wool, Short
@@ -113,8 +198,9 @@
                 </div>
 
                 <!-- Project Card 3: Example Resourcepack -->
-                <div class="card">
-                    <h3 class="2xl font-bold mb-3">Advancements+ Datapack</h3>
+                <div class="project-card card">
+                    <div class="project-icon mb-4 text-4xl">🏆</div>
+                    <h3 class="text-2xl font-bold mb-3">Advancements+ Datapack</h3>
                     <p class="text-text-color mb-4">
                         A Minecraft Datapack adding a Variety of Vanilla-Freindly Advancements/Achievments to Minecraft.
                         Includes Achivements like Die to Creeper, Kill the Warden etc. Currently, There are not many
@@ -164,7 +250,15 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
     <script>
+        // Smooth scroll for navigation
         document.querySelectorAll('nav a').forEach(a => {
             a.addEventListener('click', e => {
                 const href = a.getAttribute('href');
@@ -174,6 +268,72 @@
                     document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated counters
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        };
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    
+                    // Animate counters when stats section is visible
+                    if (entry.target.id === 'stats') {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            if (!counter.classList.contains('animated')) {
+                                counter.classList.add('animated');
+                                animateCounter(counter);
+                            }
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-on-scroll');
+            observer.observe(section);
         });
     </script>
 </body>

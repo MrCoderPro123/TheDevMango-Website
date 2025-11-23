@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./assets.css">
 </head>
 
 <body>
@@ -18,15 +19,18 @@
             <nav>
                 <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center">
                     <li><a href="../index.html" class="hover:text-primary-green">Home</a></li>
+                    <li><a href="../index.html#about" class="hover:text-primary-green">About</a></li>
+                    <li><a href="../index.html#projects" class="hover:text-primary-green">Projects</a></li>
+                    <li><a href="../index.html#contact" class="hover:text-primary-green">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Subtitle / Tagline -->
-    <div class="bg-[#222222] text-center py-2 shadow-md">
+    <div class="bg-[#222222] text-center py-3 shadow-md">
         <p class="text-white text-lg md:text-xl font-semibold">
-            Royalty Free Assets for Everyone
+            🎵 Royalty Free Assets for Everyone 🎵
         </p>
     </div>
 
@@ -34,21 +38,29 @@
     <!-- Search Section -->
     <section class="bg-[var(--background-body)] py-6">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row gap-4 items-center">
-
+            <div class="flex flex-col md:flex-row gap-4 items-center mb-4">
                 <!-- Search Bar -->
-                <input type="text" id="searchbar" placeholder="Search for Assets..."
-                    class="w-full md:w-2/3 px-4 py-3 rounded-lg bg-[#2a2a2a] text-white border border-[#555] focus:outline-none focus:ring-2 focus:ring-[var(--primary-green)]">
+                <div class="relative w-full md:w-2/3">
+                    <input type="text" id="searchbar" placeholder="🔍 Search for Assets..."
+                        class="w-full px-4 py-3 rounded-lg bg-[#2a2a2a] text-white border border-[#555] focus:outline-none focus:ring-2 focus:ring-[var(--primary-green)] transition-all">
+                </div>
 
                 <!-- Dropdown -->
                 <select id="assetType"
-                    class="w-full md:w-1/3 px-4 py-3 rounded-lg bg-[#2a2a2a] text-white border border-[#555] focus:outline-none focus:ring-2 focus:ring-[var(--primary-green)]">
+                    class="w-full md:w-1/3 px-4 py-3 rounded-lg bg-[#2a2a2a] text-white border border-[#555] focus:outline-none focus:ring-2 focus:ring-[var(--primary-green)] cursor-pointer">
+                    <option value="all">All Categories</option>
                     <option value="sfx">Sound Effects</option>
-                    <!-- <option value="textures">Textures</option> -->
-                    <!-- <option value="models">3D Models</option> -->
-                    <!-- <option value="other">Other</option> -->
+                    <option value="ui">UI Sounds</option>
+                    <option value="ambient">Ambient</option>
+                    <option value="action">Action</option>
                 </select>
-
+            </div>
+            
+            <!-- Results Count -->
+            <div class="flex justify-center items-center">
+                <p id="resultsCount" class="text-text-color text-sm md:text-base">
+                    <span id="visibleCount">0</span> of <span id="totalCount">0</span> assets
+                </p>
             </div>
         </div>
     </section>
@@ -57,99 +69,396 @@
     <section class="py-10 bg-[var(--background-body)]">
         <div class="container mx-auto px-4">
 
-            <h2 class="text-3xl font-bold text-secondary-yellow mb-6">Sound Effects</h2>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-secondary-yellow">Sound Effects</h2>
+            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- No Results Message -->
+            <div id="noResults" class="hidden text-center py-12 card">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-2xl font-bold text-secondary-yellow mb-2">No Assets Found</h3>
+                <p class="text-text-color">Try adjusting your search or filter criteria</p>
+            </div>
+
+            <div id="assetsGrid" class="grid grid-cols-1 gap-4">
 
                 <!-- SOUND CARD -->
-                <div class="card asset-card flex flex-col gap-4" data-name="whoosh sound" data-type="sfx">
-
-                    <h3 class="text-xl font-bold text-secondary-yellow">Whoosh Sound</h3>
-
-                    <audio controls class="w-full">
-                        <source src="./assets/Whoosh.m4a" type="audio/mpeg">
-                    </audio>
-
-                    <a href="./assets/Whoosh.m4a" download class="minecraft-button w-full text-center">
-                        Download
-                    </a>
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="whoosh sound" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">💨</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Whoosh Sound</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Whoosh.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Whoosh.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
                 </div>
 
                 <!-- SOUND CARD -->
-                <div class="card asset-card flex flex-col gap-4" data-name="switch click" data-type="sfx">
-
-                    <h3 class="text-xl font-bold text-secondary-yellow">Switch Click</h3>
-
-                    <audio controls class="w-full">
-                        <source src="./assets/Switch.m4a" type="audio/mpeg">
-                    </audio>
-
-                    <a href="./assets/Switch.m4a" download class="minecraft-button w-full text-center">
-                        Download
-                    </a>
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="whoosh 2" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">💨</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Whoosh 2</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Whoosh 2.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Whoosh 2.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
                 </div>
 
                 <!-- SOUND CARD -->
-                <div class="card asset-card flex flex-col gap-4" data-name="footstep" data-type="sfx">
-
-                    <h3 class="text-xl font-bold text-secondary-yellow">Footstep</h3>
-
-                    <audio controls class="w-full">
-                        <source src="./assets/Footsteps.m4a" type="audio/mpeg">
-                    </audio>
-
-                    <a href="./assets/Footsteps.m4a" download class="minecraft-button w-full text-center">
-                        Download
-                    </a>
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="switch click" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🔘</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Switch Click</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Switch.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Switch.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
                 </div>
 
                 <!-- SOUND CARD -->
-                <div class="card asset-card flex flex-col gap-4" data-name="page flip" data-type="sfx">
-
-                    <h3 class="text-xl font-bold text-secondary-yellow">Page Flip</h3>
-
-                    <audio controls class="w-full">
-                        <source src="./assets/Page flip.m4a" type="audio/mpeg">
-                    </audio>
-
-                    <a href="./assets/Page flip.m4a" download class="minecraft-button w-full text-center">
-                        Download
-                    </a>
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="switch 2" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🔘</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Switch 2</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Switch 2.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Switch 2.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
                 </div>
 
                 <!-- SOUND CARD -->
-                <div class="card asset-card flex flex-col gap-4" data-name="typing" data-type="sfx">
-
-                    <h3 class="text-xl font-bold text-secondary-yellow">Typing</h3>
-
-                    <audio controls class="w-full">
-                        <source src="./assets/Typing.m4a" type="audio/mpeg">
-                    </audio>
-
-                    <a href="./assets/Typing.m4a" download class="minecraft-button w-full text-center">
-                        Download
-                    </a>
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="footstep" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">👣</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Footstep</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Footsteps.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Footsteps.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
                 </div>
 
                 <!-- SOUND CARD -->
-                <div class="card asset-card flex flex-col gap-4" data-name="clock ticking" data-type="sfx">
-
-                    <h3 class="text-xl font-bold text-secondary-yellow">Clock Ticking</h3>
-
-                    <audio controls class="w-full">
-                        <source src="./assets/Clock ticking.m4a" type="audio/mpeg">
-                    </audio>
-
-                    <a href="./assets/Clock ticking.m4a" download class="minecraft-button w-full text-center">
-                        Download
-                    </a>
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="page flip" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">📄</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Page Flip</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Page flip.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Page flip.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
                 </div>
 
-                <!-- add more cards here... -->
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="typing" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">⌨️</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Typing</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Typing.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Typing.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="typing 2" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">⌨️</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Typing 2</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Typing 2.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Typing 2.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="clock ticking" data-type="sfx" data-category="ambient">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🕐</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Clock Ticking</h3>
+                            </div>
+                            <span class="category-badge bg-[#9C27B0] text-white px-2 py-1 rounded text-xs">Ambient</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Clock ticking.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Clock ticking.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="door open close" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🚪</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Door Open Close</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Door open close.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Door open close.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="door open close 2" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🚪</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Door Open Close 2</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Door open close 2.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Door open close 2.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="card swipe" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">💳</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Card Swipe</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Card swipe.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Card swipe.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="coin fall" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🪙</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Coin Fall</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Coin fall.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Coin fall.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="drawer" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🗄️</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Drawer</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Drawer.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Drawer.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="mouse clicks" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🖱️</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Mouse Clicks</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Mouse clicks.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Mouse clicks.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="stapler" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">📎</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Stapler</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Stapler.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Stapler.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="touchpad" data-type="sfx" data-category="ui">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🖐️</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Touchpad</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--secondary-yellow)] text-black px-2 py-1 rounded text-xs">UI</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Touchpad.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Touchpad.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="water splash" data-type="sfx" data-category="action">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">💧</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Water Splash</h3>
+                            </div>
+                            <span class="category-badge bg-[var(--primary-green)] text-white px-2 py-1 rounded text-xs">Action</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Water splash.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Water splash.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SOUND CARD -->
+                <div class="asset-card-wrapper fade-on-scroll">
+                    <div class="card asset-card flex flex-col gap-4" data-name="wind" data-type="sfx" data-category="ambient">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl">🌬️</span>
+                                <h3 class="text-xl font-bold text-secondary-yellow">Wind</h3>
+                            </div>
+                            <span class="category-badge bg-[#9C27B0] text-white px-2 py-1 rounded text-xs">Ambient</span>
+                        </div>
+                        <audio controls class="w-full audio-player">
+                            <source src="./assets/Wind.m4a" type="audio/mpeg">
+                        </audio>
+                        <a href="./assets/Wind.m4a" download class="minecraft-button w-full text-center download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="text-text-color p-6 text-center bg-[var(--header-footer-bg)]">
+        <div class="container mx-auto">
+            <p>&copy; 2025 TheDevMango. All rights reserved. Royalty-free assets for everyone.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
 </body>
 <script src="./assets.js"></script>

@@ -13,3 +13,28 @@
     justify-content: center;
     gap: 10px;
 }
+
+/* Enhanced header on scroll */
+header {
+    backdrop-filter: blur(10px);
+    background-color: rgba(40, 40, 40, 0.95);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* Card hover effects enhancement */
+.card {
+    position: relative;
+}
+
+/* Stats section styling */
+#stats .stat-card {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
