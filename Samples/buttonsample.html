@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Style Btn</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: rgb(39, 39, 39);
+        }
+        .container{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+        .btn{
+            position: relative;
+            overflow: hidden;
+            width: 125px;
+            height: 40px;
+            border: none;
+            background-color: green;
+            font-size: 17px;
+            font-family: "VT323";
+            border-bottom: 5px solid darkgreen;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+
+        .btn:hover{
+            background-color: gold;
+            border-bottom-color: goldenrod;
+        }
+
+        .btn:active{
+            border-bottom: 0px solid goldenrod;
+            border-top: 5px solid rgb(39, 39, 39);;
+        }
+        #disabledBtn:hover{
+            background-color: red;
+            border-bottom-color: darkred;
+        }
+        .fillBtn{
+            border-bottom: none;
+            border: 3px solid green;
+            background: none;
+            color: green;
+            width: 125px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: "VT323";
+            transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+        .fillBtn:hover{
+            background-color: green;
+            color: gold;
+            border-color: gold;
+        }
+        .fillBtn:active{
+            background-color: gold;
+            color: green;
+            border-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn" id="normalBtn">Get Minecraft</button>
+        <button id="disabledBtn" class="btn" title="Get Money you BROKE PLONKERR!!!!">Get Cracked</button>
+        <button class="fillBtn" id="fillBtn">Pay me!!!!</button>
+    </div>
+</body>
+<script>
+    const disabledBtn = document.getElementById("disabledBtn");
+    const normalBtn = document.getElementById("normalBtn")
+    const fillbtn = document.getElementById("fillBtn")
+
+    disabledBtn.addEventListener("mouseenter", ()=>{
+        disabledBtn.textContent = "Sorry."
+    })
+    disabledBtn.addEventListener("mouseleave", ()=>{
+        disabledBtn.textContent = "Get Cracked"
+    })    
+    
+    normalBtn.addEventListener("mouseenter", ()=>{
+        normalBtn.textContent = "Yesss!"
+    })
+    normalBtn.addEventListener("mouseleave", ()=>{
+        normalBtn.textContent = "Get Minecraft"
+    })    
+    
+    fillbtn.addEventListener("mouseenter", ()=>{
+        fillbtn.textContent = "$$$$"
+    })
+    fillbtn.addEventListener("mouseleave", ()=>{
+        fillbtn.textContent = "Pay me!!!!"
+    })
+</script>
+</html>

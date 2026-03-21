@@ -32,60 +32,63 @@
       /* Prevent horizontal scrolling */
   }
 
-  /* Minecraft Bedrock Style Buttons - Classic Look */
+  /* Minecraft Sample Button Style */
   .minecraft-button {
-      @apply inline-flex items-center justify-center rounded-lg cursor-pointer relative overflow-hidden;
-      background-color: var(--primary-green);
-      color: var(--button-text-color);
-      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-      padding: 1rem 2.5rem;
-      /* Ample padding for breathing room */
-      /* Reintroduced box-shadow for classic depth effect */
-      box-shadow: 0px 6px 0px var(--primary-green-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.1s ease-out, box-shadow 0.1s ease-out, transform 0.1s ease-out;
-      /* Smooth transition for all changes */
-      transform: translateY(0);
-      /* Base position */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-sizing: border-box;
+      min-width: 280px;
+      min-height: 72px;
+      padding: 1.1rem 3.25rem;
+      line-height: 1.2;
       border: none;
-      /* Ensure no default borders interfere */
+      border-radius: 0;
+      background-color: var(--primary-green);
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-shadow: none;
+      border-bottom: 5px solid var(--primary-green-dark);
+      transition: background-color 0.2s ease, border-bottom-color 0.2s ease, border-top-color 0.05s ease;
   }
 
   .minecraft-button:hover {
       background-color: var(--secondary-yellow);
-      /* Box-shadow remains consistent in offset/blur, only color changes */
-      box-shadow: 0px 6px 0px var(--secondary-yellow-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
-      transform: translateY(0);
-      /* No lift on hover */
-      color: var(--button-text-color);
+      border-bottom-color: var(--secondary-yellow-dark);
+      color: #1a1a1a;
+      text-decoration: none;
+      transform: none;
   }
 
   .minecraft-button:active {
-      transform: translateY(6px) scale(0.98);
-      /* Push down on click - arcade game feel */
-      /* Flatten shadow on click for "pressed" look */
-      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.2);
-      background-color: var(--primary-green-dark);
-      transition: all 0.05s ease-out;
+      border-bottom: 0 solid var(--secondary-yellow-dark);
+      border-top: 5px solid var(--background-body);
+      transform: none;
+      box-shadow: none;
   }
 
-  /* Specific style for primary CTA button */
+  /* Keep CTA class but same sample style */
   .minecraft-button.cta {
-      background-color: var(--secondary-yellow);
-      box-shadow: 0px 6px 0px var(--secondary-yellow-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
-      color: var(--button-text-color);
+      background-color: var(--primary-green);
+      border-bottom: 5px solid var(--primary-green-dark);
+      color: #ffffff;
   }
 
   .minecraft-button.cta:hover {
-      background-color: var(--primary-green);
-      box-shadow: 0px 6px 0px var(--primary-green-dark), 0px 8px 12px rgba(0, 0, 0, 0.3);
+      background-color: var(--secondary-yellow);
+      border-bottom-color: var(--secondary-yellow-dark);
+      color: #1a1a1a;
   }
 
   .minecraft-button.cta:active {
-      transform: translateY(6px) scale(0.98);
-      /* Consistent push down - arcade game feel */
-      box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.2);
-      background-color: var(--secondary-yellow-dark);
-      transition: all 0.05s ease-out;
+      border-bottom: 0 solid var(--secondary-yellow-dark);
+      border-top: 5px solid var(--background-body);
+      transform: none;
+      box-shadow: none;
   }
 
   /* Card styling */
@@ -174,10 +177,11 @@
   /* Mobile devices (up to 640px) */
   @media (max-width: 640px) {
       .minecraft-button {
-          padding: 0.75rem 1.5rem;
-          font-size: 1rem;
+          padding: 1rem 1.9rem;
+          font-size: 1.1rem;
           width: 100%;
-          max-width: 300px;
+          max-width: 360px;
+          min-height: 62px;
       }
 
       header {
@@ -252,8 +256,9 @@
   /* Tablet devices (641px to 768px) */
   @media (min-width: 641px) and (max-width: 768px) {
       .minecraft-button {
-          padding: 0.85rem 2rem;
-          font-size: 1.05rem;
+          padding: 1.05rem 2.4rem;
+          font-size: 1.15rem;
+          min-height: 66px;
       }
 
       header h1 {
@@ -276,8 +281,9 @@
   /* Small tablets and mobile landscape (up to 768px) */
   @media (max-width: 768px) {
       .minecraft-button {
-          padding: 0.8rem 1.8rem;
-          font-size: 1.1rem;
+          padding: 1.05rem 2.2rem;
+          font-size: 1.15rem;
+          min-height: 64px;
       }
 
       nav ul {
