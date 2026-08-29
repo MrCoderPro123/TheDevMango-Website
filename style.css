@@ -1,15 +1,15 @@
   /* Custom CSS for Minecraft Bedrock style and theme (Dark Theme Only) */
   :root {
       /* Dark Theme Colors (now the only theme) */
-      --background-body: #1a1a1a;
+      --background-body: #1a1a1d;
       --text-color: #e0e0e0;
-      --primary-green: #4CAF50;
+      --primary-green: #FF9F1C;
       /* Vibrant Green */
-      --primary-green-dark: #388E3C;
+      --primary-green-dark: #c17915;
       /* Darker Green for hover/shadow */
-      --secondary-yellow: #FFEB3B;
+      --secondary-yellow: #FFBF69;
       /* Vibrant Yellow */
-      --secondary-yellow-dark: #FBC02D;
+      --secondary-yellow-dark: #cf9953;
       /* Darker Yellow for hover/shadow */
       --border-color: #555;
       --button-text-color: #ffffff;
@@ -377,7 +377,7 @@
 
   .skill-card:hover {
       transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+      box-shadow: 0 10px 25px var(--secondary-yellow-dark);
       border-color: var(--primary-green);
   }
 
@@ -405,7 +405,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(175, 135, 76, 0.1), transparent);
       transition: left 0.5s ease;
   }
 
@@ -415,7 +415,7 @@
 
   .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(76, 175, 80, 0.3);
+      box-shadow: 0 15px 35px var(--secondary-yellow-dark);
       border-color: var(--primary-green);
   }
 
