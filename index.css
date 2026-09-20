@@ -168,3 +168,9 @@ a, button {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+.featured-text{
+    color: rgb(43, 255, 43);
+    text-decoration: underline;
+    font-weight: bolder;
+}
